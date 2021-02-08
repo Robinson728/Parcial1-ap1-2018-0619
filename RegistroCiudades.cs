@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace PrimerParcial
 {
-    public partial class Form1 : Form
+    public partial class RegistroCiudades : Form
     {
-        public Form1()
+        public RegistroCiudades()
         {
             InitializeComponent();
         }
 
+        private void RegistroCiudades_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
