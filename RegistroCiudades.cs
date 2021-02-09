@@ -19,11 +19,6 @@ namespace PrimerParcial
             InitializeComponent();
         }
 
-        private void RegistroCiudades_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Limpiar()
         {
             IdNumericUpDown1.Value = 0;
