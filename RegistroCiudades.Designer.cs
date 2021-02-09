@@ -144,7 +144,6 @@ namespace PrimerParcial
             this.Controls.Add(this.label1);
             this.Name = "RegistroCiudades";
             this.Text = "Registro de Ciudades";
-            this.Load += new System.EventHandler(this.RegistroCiudades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
