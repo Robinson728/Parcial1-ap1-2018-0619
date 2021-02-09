@@ -83,7 +83,7 @@ namespace PrimerParcial.BLL
             return encontrado;
         }
 
-        private static bool Eliminar(int id)
+        public static bool Eliminar(int id)
         {
             Contexto contexto = new Contexto();
             bool paso = false;
@@ -110,7 +110,7 @@ namespace PrimerParcial.BLL
             return paso;
         }
 
-        private static Ciudades Buscar(int id)
+        public static Ciudades Buscar(int id)
         {
             Contexto contexto = new Contexto();
             Ciudades ciudad;
