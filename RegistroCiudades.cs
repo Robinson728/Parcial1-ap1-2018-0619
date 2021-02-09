@@ -58,15 +58,21 @@ namespace PrimerParcial
             bool paso = true;
             ErrorProvider.Clear();
 
-            if(IdNumericUpDown1.Value == 0)
+            if (IdNumericUpDown1.Value == 0)
             {
                 ErrorProvider.SetError(IdNumericUpDown1, "El Id no puede ser igual a cero (0)");
                 IdNumericUpDown1.Focus();
                 paso = false;
             }
-            else if(NombreTextBox.Text == string.Empty)
+            if (NombreTextBox.Text == string.Empty)
             {
                 ErrorProvider.SetError(NombreTextBox, "El campo nombre no puede estar vacío");
+                NombreTextBox.Focus();
+                paso = false;
+            }
+            if (CiudadesBLL.ExisteNombre(NombreTextBox.Text))
+            {
+                ErrorProvider.SetError(NombreTextBox, "Esta ciudad ya existe");
                 NombreTextBox.Focus();
                 paso = false;
             }
@@ -80,12 +86,18 @@ namespace PrimerParcial
             Ciudades ciudad = new Ciudades();
             int.TryParse(IdNumericUpDown1.Text, out id);
 
+            Limpiar();
+
             ciudad = CiudadesBLL.Buscar(id);
 
             if (ciudad != null)
+            {
                 LlenaCampo(ciudad);
+            }
             else
+            {
                 MessageBox.Show("Persona no encontrada", "Id no existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -98,7 +110,7 @@ namespace PrimerParcial
             Ciudades ciudad;
             bool paso = false;
 
-            if (Validar())
+            if (!Validar())
                 return;
 
             ciudad = LlenaClase();

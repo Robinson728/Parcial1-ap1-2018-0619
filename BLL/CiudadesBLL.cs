@@ -83,6 +83,27 @@ namespace PrimerParcial.BLL
             return encontrado;
         }
 
+        public static bool ExisteNombre(string pronombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Ciudades.Any(e => e.Nombre == pronombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return encontrado;
+        }
+
         public static bool Eliminar(int id)
         {
             Contexto contexto = new Contexto();
